@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="carta de amor2.css">
+  <title>Diego & Eyshila</title>
+</head>
+<body>
+
+  <header>Diego & Eyshila 💖</header>
+
+  <!-- Seções com imagem + frase -->
+  <div class="section">
+    <img src="IMG-20250605-WA0013.jpg" alt="Foto 1" />
+    <div class="frase">"Você é o meu sorriso mais sincero."</div>
+  </div>
+
+  <div class="section">
+    <img src="IMG-20250605-WA0012.jpg" alt="Foto 2" />
+    <div class="frase">"Nos teus braços é onde eu me sinto em casa."</div>
+  </div>
+
+  <div class="section">
+    <img src="IMG-20250605-WA0014.jpg" alt="Foto 3" />
+    <div class="frase">"Cada momento com você é eterno."</div>
+  </div>
+
+   <div class="section">
+    <img src="IMG-20250605-WA0015.jpg" alt="Foto 3" />
+    <div class="frase">"Cada vez que olho para você é como se eu tivesse olhando uma aurea boreal."</div>
+  </div>
+
+  <!-- Música -->
+  <audio id="musica" autoplay loop>
+    <source src="golden hour.mp3" type="audio/mpeg" />
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <script>
+    // Tenta tocar a música assim que a página carrega
+    window.addEventListener('load', () => {
+      const audio = document.getElementById('musica');
+      audio.play().catch(() => {
+        console.log("Autoplay com som foi bloqueado. O usuário precisa interagir com a página.");
+      });
+    });
+
+    // Função para revelar seções ao rolar
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
